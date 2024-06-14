@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = git@github.com:AmirHosseinJazz/RIMA.git
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:madixiu/PricePal-PWA.git
