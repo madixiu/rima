@@ -1,0 +1,19 @@
+
+services:
+  nginx:
+    container_name: nginxTest
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+
+      # target: production-stage
+    ports:
+      - "80:80"
+    # depends_on:
+    #   - frontend
+#     #   - backend
+#     volumes:
+#       - nginx:/etc/nginx/nginx.conf:rw
+
+# volumes:
+#   nginx:
