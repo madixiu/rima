@@ -2,25 +2,20 @@
 # Use an official Node runtime as the base image
 FROM node:20.14-alpine as build-stage
 
-# Set the working directory in the container
 WORKDIR /client
 
-# Install Yarn
-# RUN npm install -g yarn
 
 # Copy the package.json and package-lock.json to the current directory
 COPY ../frontend/package.json ./
+COPY ../frontend/yarn.lock ./
+COPY ../frontend/ ./
 
-# RUN npm cache verify
-COPY ../frontend/ .
-
-# Install any needed packages specified in package-json
 RUN yarn install
+# RUN npm cache verify
+# COPY ../frontend/ ./
 
 
-# Run the build script
 RUN yarn run build
-
 # production stage
 FROM nginx:1.24.0 as production-stage
 
