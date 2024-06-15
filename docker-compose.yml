@@ -34,8 +34,8 @@ services:
       - postgres
     networks:
       - netexchange
-    # logging:
-    #   driver: none
+    logging:
+      driver: none
 
   fast_api:
     build:
@@ -72,8 +72,8 @@ services:
       PREFECT_PORT: ${PERFECT_PORT}
     volumes:
       - ./backend/scheduler:/app
-    # logging:
-    #   driver: none
+    logging:
+      driver: none
     depends_on:
       - perfect_server
       - postgres
